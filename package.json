@@ -7,13 +7,19 @@
     "start": "nodemon app",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint --fix --quite 'src/**/*.{js,ts}'",
-    "prettier": "prettier --write 'src/**/*.{js,ts}' --config .prettierrc.json"
+    "prettier": "prettier --write 'src/**/*.{js,ts}' --config .prettierrc.json",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,js}": ["npm run lint", "npm run prettier"]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3"
   },
   "devDependencies": {
     "eslint": "^8.21.0",
