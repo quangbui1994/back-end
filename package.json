@@ -2,16 +2,19 @@
   "name": "auth-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "nodemon ./src/app",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint --fix --quite 'src/**/*.{js,ts}'",
     "prettier": "prettier --write 'src/**/*.{js,ts}' --config .prettierrc.json",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts,js}": ["npm run lint", "npm run prettier"]
+    "*.{ts,js}": [
+      "npm run lint",
+      "npm run prettier"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,7 @@
   "devDependencies": {
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.19",
     "prettier": "^2.7.1"
   }
 }

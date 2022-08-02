@@ -1,0 +1,12 @@
+version: "2.0"
+
+services:
+  auth:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    volumes:
+      - /app/node_modules
+      - .:/app
