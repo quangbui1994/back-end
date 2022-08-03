@@ -1,11 +1,7 @@
-FROM node:latest
-
+FROM node:lts-alpine
 WORKDIR /app
-
-COPY package.json .
-
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install
-
 COPY . .
-
-CMD npm start
+EXPOSE 4000
+CMD ["npm", "start"]
