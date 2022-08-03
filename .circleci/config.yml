@@ -1,11 +1,12 @@
 version: 2.1
-orbs:
+
+obs:
   node: circleci/node@5.0.2
-  heroku: circleci/heroku@1.2.6
 
 jobs:
   build_and_test:
     executor: node/default
+
     steps:
       - checkout
       - node/install-packages:
@@ -15,14 +16,13 @@ jobs:
           name: Run tests
       - run:
           command: npm run build
-          name: Build app
+          name: Run build
       - persist_to_workspace:
           root: ~/project
-          paths:
+          path:
             - .
 
 workflows:
-  test_my_app:
+  build_and_test:
     jobs:
       - build_and_test
-      
