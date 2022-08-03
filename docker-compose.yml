@@ -1,12 +1,17 @@
-version: "2.0"
+version: '3.4'
 
 services:
-  auth:
+  authservice:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
     ports:
       - 4000:4000
     volumes:
       - /app/node_modules
       - .:/app
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
