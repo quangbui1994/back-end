@@ -6,7 +6,6 @@ obs:
 jobs:
   build_and_test:
     executor: node/default
-
     steps:
       - checkout
       - node/install-packages:
