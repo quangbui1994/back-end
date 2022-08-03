@@ -21,3 +21,8 @@ jobs:
         root: ~/project
         path:
           - .
+
+workflow:
+  build-and-test:
+    jobs:
+      - build-and-test
