@@ -4,7 +4,7 @@ obs:
   node: circleci/node@5.0.2
 
 jobs:
-  build-and-test:
+  build_and_test:
     executor: node/default
 
     steps:
@@ -23,6 +23,6 @@ jobs:
           - .
 
 workflow:
-  build-and-test:
+  build_and_test:
     jobs:
       - build-and-test
