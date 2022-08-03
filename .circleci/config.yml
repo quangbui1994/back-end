@@ -22,7 +22,7 @@ jobs:
           path:
             - .
 
-workflow:
+workflows:
   build_and_test:
     jobs:
       - build-and-test
