@@ -18,7 +18,7 @@ jobs:
           name: Run build
       - persist_to_workspace:
           root: ~/project
-          path:
+          paths:
             - .
 
 workflows:
