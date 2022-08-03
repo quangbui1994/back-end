@@ -1,5 +1,6 @@
 const { v4: uuid } = require('uuid')
 const User = require('../schema/auth')
+const bcrypt = require('bcrypt')
 
 class AuthService {
     constructor() {}
@@ -9,7 +10,8 @@ class AuthService {
         if (!user) {
             throw Error('User not existed')
         }
-        if (user.password !== password) {
+        const isPasswordMatched = await bcrypt.compare(password, user.password)
+        if (!isPasswordMatched) {
             throw Error('Password wrong')
         }
         return user
@@ -23,7 +25,12 @@ class AuthService {
         }
 
         try {
-            const newUser = new User({ username, password, id: uuid() })
+            const newPassword = await bcrypt.hash(password, 8)
+            const newUser = new User({
+                username,
+                password: newPassword,
+                id: uuid(),
+            })
             await newUser.save()
             return newUser
         } catch (error) {
